@@ -1,14 +1,4 @@
+// Аксар ҳолатда .vercel.json ёки .render.yaml ичида бўлади
 {
-  "builds": [
-    {
-      "src": "main.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "main.py"
-    }
-  ]
+  "entrypoint": "main:ilova"
 }
