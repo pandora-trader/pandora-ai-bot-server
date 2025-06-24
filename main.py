@@ -1,14 +1,19 @@
 from fastapi import FastAPI, Request
+import requests
 
 app = FastAPI()
 
-@app.get("/")
-async def ildiz():
-    return {"message": "Pandora AI bot server ishlayapti."}
+BOT_TOKEN = "TELEGRAM_BOT_TOKEN"
+TELEGRAM_API_URL = f"https://api.telegram.org/bot{BOT_TOKEN}"
 
 @app.post("/webhook")
-async def webhook(iltimos: Request):
-    ma_lumotlar = await iltimos.json()
-    print("Telegram'dan kelgan webhook:")
-    print(ma_lumotlar)
-    return {"kelib_tushdi": True}
+async def webhook_handler(req: Request):
+    data = await req.json()
+    print("Telegramдан сўров:", data)
+
+    if "message" in data:
+        chat_id = data["message"]["chat"]["id"]
+        text = "✅ Pandora AI бот ишга тушди!"
+        requests.post(f"{TELEGRAM_API_URL}/sendMessage", json={"chat_id": chat_id, "text": text})
+
+    return {"ok": True}
