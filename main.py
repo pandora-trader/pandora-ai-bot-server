@@ -14,9 +14,12 @@ async def webhook_handler(req: Request):
     if "message" in data:
         chat_id = data["message"]["chat"]["id"]
         text = "✅ Pandora AI бот ишга тушди!"
-        requests.post(
+
+        response = requests.post(
             f"{TELEGRAM_API_URL}/sendMessage",
             json={"chat_id": chat_id, "text": text}
         )
+
+        print("📤 Жўнатилган жавоб:", response.status_code, response.text)
 
     return {"ok": True}
