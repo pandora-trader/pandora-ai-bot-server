@@ -13,7 +13,7 @@ async def webhook_handler(req: Request):
 
     if "message" in data:
         chat_id = data["message"]["chat"]["id"]
-        text = "✅ Pandora AI бот ишга тушди!"
+        text = text = "Test: Pandora AI bot ishlayapti."
 
         try:
             response = requests.post(
