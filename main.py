@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 
-app = FastAPI()  # <--- avvalgi 'ilova' emas
+app = FastAPI()  # <-- avvalgidek 'ilova' emas
 
 @app.get("/")
 async def ildiz():
