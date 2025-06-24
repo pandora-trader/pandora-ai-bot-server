@@ -1,4 +1,6 @@
-// Аксар ҳолатда .vercel.json ёки .render.yaml ичида бўлади
-{
-  "entrypoint": "main:ilova"
-}
+services:
+  - type: web
+    name: pandora-ai-bot-server
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:ilova --host=0.0.0.0 --port=10000
