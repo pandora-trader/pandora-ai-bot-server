@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 
-app = FastAPI()  # <-- avvalgidek 'ilova' emas
+app = FastAPI()  # ilova emas, endi 'app'
 
 @app.get("/")
 async def ildiz():
@@ -8,7 +8,7 @@ async def ildiz():
 
 @app.post("/webhook")
 async def webhook(iltimos: Request):
-    ma'lumotlar = await iltimos.json()
+    ma_lumotlar = await iltimos.json()
     print("Telegram'dan kelgan webhook:")
-    print(ma'lumotlar)
-    return {"kelib tushdi": True}
+    print(ma_lumotlar)
+    return {"kelib_tushdi": True}
