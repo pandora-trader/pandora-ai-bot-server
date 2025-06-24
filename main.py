@@ -1,14 +1,14 @@
 from fastapi import FastAPI, Request
 
-ilova = FastAPI()
+app = FastAPI()
 
-@ilova.get("/")
+@app.get("/")
 async def ildiz():
     return {"message": "Pandora AI bot server ishlayapti."}
 
-@ilova.post("/webhook")
+@app.post("/webhook")
 async def webhook(iltimos: Request):
-    ma'lumotlar = await iltimos.json()
+    ma_lumotlar = await iltimos.json()
     print("Telegram'dan kelgan webhook:")
-    print(ma'lumotlar)
+    print(ma_lumotlar)
     return {"kelib tushdi": True}
