@@ -3,7 +3,7 @@ import requests
 
 app = FastAPI()
 
-BOT_TOKEN = "TELEGRAM_BOT_TOKEN"
+BOT_TOKEN = "8022008632:AAF0NyLr-ALlaJaZ-oNOI8qSAoROuoJc_Qw"
 TELEGRAM_API_URL = f"https://api.telegram.org/bot{BOT_TOKEN}"
 
 @app.post("/webhook")
